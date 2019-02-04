@@ -13,7 +13,7 @@ import (
 	"golang.org/x/crypto/ssh"
 )
 
-const slotHeight = 4
+const slotHeight = 5
 
 var (
 	filled = '⣿'
@@ -320,6 +320,8 @@ func (p *Player) update() {
 								sp.score[2] = fmt.Sprintf("  %s           ", sp.status())
 							case 3:
 								sp.score[3] = fmt.Sprintf("  kills %4d   ", sp.Kills)
+							case 4:
+								sp.score[4] = fmt.Sprintf("  deaths %4d   ", sp.Deaths)
 							}
 						}
 						if tw-1 < len(sp.score[line]) {
