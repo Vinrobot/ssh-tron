@@ -35,7 +35,7 @@ func (b *Bot) message(msg string) error {
 }
 
 func (b *Bot) messageTo(to, msg string) error {
-	if _, _, err := b.api.PostMessage(to, msg, slack.PostMessageParameters{AsUser: true}); err != nil {
+	if _, _, err := b.api.PostMessage(to, slack.MsgOptionText(msg, true), slack.MsgOptionAsUser(true)); err != nil {
 		log.Printf("failed to send slack message to: %s: %s", to, err)
 		return err
 	}
